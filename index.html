@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title></title>
+  
+</head>
+<body>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+  <script src="http://10.0.0.101:1337/socket.io/socket.io.js"></script>  
+  <script>
+  serviceUrl = 'http://10.0.0.101:1337';
+  
+  $(function(){
+    var socket = io.connect(serviceUrl);
+
+    socket.on('picture', function(data){
+      var img = $('<img class="newImg" src="' + data + '" alt="" />');
+      $('body').append(img);
+      setTimeout(function(){
+        img.remove();
+      }, 4000);
+    });
+  });
+
+</script>
+</body>
+</html>
