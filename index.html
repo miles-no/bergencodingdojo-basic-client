@@ -20,6 +20,11 @@
         img.remove();
       }, 4000);
     });
+
+    $(document).on('<some event>', function() {
+      var base64encodedUrl = '[GET BASE 64 URL HERE]';
+      socket.emit('addphoto', { dataurl: base64encodedUrl });
+    })
   });
 
 </script>
